@@ -1,0 +1,6 @@
+# config.py.example
+
+# Rename this file to config.py and enter your own server configuration
+
+SERVER_NAME = 'YOUR_SERVER_NAME'
+DATABASE_NAME = 'user_authentication'
