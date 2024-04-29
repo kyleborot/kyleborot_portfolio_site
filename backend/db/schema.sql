@@ -1,4 +1,4 @@
--- Here is the diagram for the db. WIP 4/28/24
+-- Here is the diagram for the db.
 -- https://app.eraser.io/workspace/UGWcsZHI5LcDLqLktR72?origin=share
 CREATE DATABASE user_authentication;
 
