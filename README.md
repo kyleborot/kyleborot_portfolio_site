@@ -6,3 +6,5 @@ If you want to use this project's structure, please fork it and run npm install 
 
 Here is a Gantt Chart that I made to track my project progress and ensure I stay on time with my deliverables. Branches will reflect the ticket numbers on the chart (1.1, 1.2, etc.) 
 https://docs.google.com/spreadsheets/d/1uWlRirXTk8Xc73l8XpxxRhGaKJWFGnld-aVHthu-LOw/edit?usp=sharing
+
+Here is the database schema for the user authentication system: https://app.eraser.io/workspace/UGWcsZHI5LcDLqLktR72?origin=share
