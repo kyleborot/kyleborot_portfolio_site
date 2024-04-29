@@ -1,6 +1,6 @@
 from flask import Flask
 import pyodbc
-from config import SERVER_NAME, DATABASE_NAME
+from config.config import SERVER_NAME, DATABASE_NAME
 
 
 app = Flask(__name__)
