@@ -1,12 +1,11 @@
 from flask import Blueprint, render_template, jsonify, request
 from login.forms import RegistrationForm, LoginForm
-from login.user_authentication import register_user
+from login.user_authentication import register_user, user_id
 from config.config import conn
 
 login_routes = Blueprint('login', __name__)
 
-
-user_id = 2
+user_id = 1
 
 @login_routes.route("/login")
 def login():
@@ -23,7 +22,7 @@ def register():
             email = form.email.data
             register_user(user_id, username, password, email)
             user_id += 1
-            return jsonify({'message': 'User registered successfully'}), 200
+            return jsonify({'message': 'User registered successfully.', 'user_id': user_id}), 200
         else:
             errors = {field: error for field, error in form.errors.items()}
             return jsonify({'message': 'Validation failed', 'errors': errors}), 400
