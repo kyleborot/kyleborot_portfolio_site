@@ -1,12 +1,13 @@
 from flask import Flask
 import pyodbc
+from config.config import SERVER_NAME, DATABASE_NAME
 
 
 app = Flask(__name__)
 
 #SQL config
-server = '[INSERT SERVER NAME HERE]'
-database = 'user_authentication' #use as db name
+server = SERVER_NAME
+database = DATABASE_NAME
 driver = '{ODBC Driver 17 for SQL Server}'
 
 conn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';DATABASE='+database+';Trusted_Connection=yes;')
