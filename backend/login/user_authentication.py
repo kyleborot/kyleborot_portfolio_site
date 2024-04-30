@@ -2,8 +2,22 @@ from flask import Flask, render_template
 from config.config import conn
 from .password_hashing import password_hashing
 
-user_id = 1
-login_id = 1
+def get_max_user_id():
+    cursor = conn.cursor()
+    cursor.execute("SELECT MAX(user_id) FROM LoginSchema.Users")
+    max_user_id = cursor.fetchone()[0]
+    cursor.close()
+    return max_user_id if max_user_id else 0
+
+def get_max_login_id():
+    cursor = conn.cursor()
+    cursor.execute("SELECT MAX(login_id) FROM LoginSchema.UserLogin")
+    max_login_id = cursor.fetchone()[0]
+    cursor.close()
+    return max_login_id if max_login_id else 0
+
+user_id = get_max_user_id() + 1
+login_id = get_max_login_id() + 1
 
 def login_user():
     
@@ -23,3 +37,10 @@ def update_user_password():
 def delete_user():
 
     return
+
+"""
+cursor.execute("SELECT x FROM Schema.Table1")
+cursor.execute("SELECT y FROM Schema.Table2")
+results = cursor.fetchall()
+x, y = results
+"""
