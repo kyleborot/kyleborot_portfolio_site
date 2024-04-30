@@ -1,0 +1,2 @@
+SERVER_NAME = "INPUT YOUR SQL DATABASE HERE"
+DATABASE_NAME = "user_authentication"
