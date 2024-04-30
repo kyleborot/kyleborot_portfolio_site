@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, jsonify, request
 from login.forms import RegistrationForm, LoginForm
-from login.user_authentication import register_user, get_max_user_id, get_max_login_id
+from login.user_authentication import login_user, register_user, get_max_user_id, get_max_login_id
 from login.password_hashing import password_hashing
 from config.config import conn
 
@@ -9,15 +9,17 @@ login_routes = Blueprint('login', __name__)
 user_id = get_max_user_id() + 1
 login_id = get_max_login_id() + 1
 
-@login_routes.route("/login")
+@login_routes.route("/login", methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if request.method == 'POST':
         if form.validate_on_submit():
             username = form.username.data
             password = form.password.data
-            login_user()
-            return jsonify({'message': 'User login successful.'}), 200
+            if login_user(username, password):
+                return jsonify({'message': 'User login successful.'}), 200
+            else:
+                return jsonify({'message': 'User login failed.'}), 200
         else:
             errors = {field: error for field, error in form.errors.items()}
             return jsonify({'message': 'Validation failed', 'errors': errors}), 400

@@ -19,9 +19,17 @@ def get_max_login_id():
 user_id = get_max_user_id() + 1
 login_id = get_max_login_id() + 1
 
-def login_user():
-    
-    return
+def login_user(username, password):
+    cursor = conn.cursor()
+    cursor.execute("SELECT hashed_password, password_salt, login_name FROM LoginSchema.UserLogin WHERE login_name = ?", (username))
+    result = cursor.fetchone()
+    if result:
+        stored_password = result[0]
+        stored_salt = result[1]
+        entered_password_hashed, _ = password_hashing(password, stored_salt)
+        if stored_password == entered_password_hashed and username == result[2]:
+            return True
+    return False
 
 def register_user(user_id, username, first_name, last_name, password, email):
     cursor=conn.cursor()

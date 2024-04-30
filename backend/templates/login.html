@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>User Login</h2>
-    <form action="http://127.0.0.1:5000/login/register" method="POST">
+    <form action="http://127.0.0.1:5000/login/login" method="POST">
         {{ form.csrf_token }}
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username"><br>
@@ -15,7 +15,7 @@
         <input type="password" id="password" name="password"><br>
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email"><br><br>
-        <input type="submit" value="Register">
+        <input type="submit" value="Login">
     </form>
 </body>
 </html>
