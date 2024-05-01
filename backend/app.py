@@ -1,28 +1,16 @@
 from flask import Flask
-import pyodbc
-from config.config import SERVER_NAME, DATABASE_NAME
+from routes.main_routes import main_routes
+from routes.login_routes import login_routes
+from config.config import conn
+import secrets
 
 
 app = Flask(__name__)
 
-#SQL config
-server = SERVER_NAME
-database = DATABASE_NAME
-driver = '{ODBC Driver 17 for SQL Server}'
+app.config['SECRET_KEY'] = secrets.token_hex(16)
 
-conn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';DATABASE='+database+';Trusted_Connection=yes;')
-
-@app.route("/")
-def hello():
-  return "Hello World!"
-
-@app.route("/test")
-def test():
-    cursor=conn.cursor()
-    cursor.execute("SELECT * FROM LoginSchema.Users") #SQL Connection Test
-    data = cursor.fetchall()
-    cursor.close()
-    return str(data)
+app.register_blueprint(main_routes)
+app.register_blueprint(login_routes, url_prefix='/login')
 
 if __name__ == "__main__":
   app.run(debug=True)
