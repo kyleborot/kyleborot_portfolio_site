@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, jsonify, request
 from login.forms import RegistrationForm, LoginForm
-from login.user_authentication import login_user, register_user, get_max_user_id, get_max_login_id
+from login.user_authentication import login_user, register_user, update_username, update_user_password, delete_user, get_max_user_id, get_max_login_id
 from login.password_hashing import password_hashing
 from config.config import conn
 
@@ -54,12 +54,34 @@ def register():
 def delete():
     global user_id
     global login_id
+    """
+    Match the Delete Form
+    get all data from form fields
+    Use in delete_user() from user_authentication
+    return same jsonify's
+    """
     return
 
 @login_routes.route("/update/user", methods=['GET', 'POST'])
 def update_user():
+    global user_id
+    global login_id
+    """
+    Match the update User form
+    get all data from form fields
+    Use data in update_username() in user_authentication
+    return same jsonify's
+    """
     return
 
 @login_routes.route("/update/password", methods=['GET', 'POST'])
 def update_password():
+    global user_id
+    global login_id
+    """
+    Match the update Password form
+    get all data from form fields
+    Use data in update_user_password() in user_authentication
+    return same jsonify's
+    """
     return

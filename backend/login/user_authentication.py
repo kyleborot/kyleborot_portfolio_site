@@ -39,16 +39,42 @@ def register_user(user_id, username, first_name, last_name, password, email):
     conn.commit()
     cursor.close()
     return "User registered successfully, next user_id is {user_id}"
-def update_user_password():
+def update_username(new_username, confirm_username, password, email):
+    cursor=conn.cursor()
+    """
+    Use email to get user_id
+    Use user_id to get login_id
+    Check if username provided matches username on file for that login_id
+    If True, continue
+    Use login_id to get password hash and salt
+    hash the password param and compare
+    if True, check new_username == confirm_username
+    if True, update username in the UserLogin table
 
+    """
+    return 
+def update_user_password(username, email, new_password, confirm_password):
+    """
+    Use username to get login_id
+    Use login_id to get user_id
+    Check if email provided matches email on file for that user_id
+    If True, continue
+    check if new_password == confirm_password
+    If True, hash new_password
+    IUpdate password hashing values in the UserLogin table
+
+    """
     return
-def delete_user():
-
+def delete_user(username, password, email, delete_form):
+    """
+    Use username to get login_id
+    Use login_id to get user_id
+    Check if email provided matches email on file for that user_id
+    If True, continue
+    Use login_id to get password hash and salt
+    hash the password param and compare
+    if True, continue
+    Check that delete_form from user input == "delete", case sensitive
+    If True, delete user from DB using user_id and login_id
+    """
     return
-
-"""
-cursor.execute("SELECT x FROM Schema.Table1")
-cursor.execute("SELECT y FROM Schema.Table2")
-results = cursor.fetchall()
-x, y = results
-"""
