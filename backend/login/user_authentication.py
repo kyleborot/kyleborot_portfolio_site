@@ -41,10 +41,26 @@ def register_user(user_id, username, first_name, last_name, password, email):
     return "User registered successfully, next user_id is {user_id}"
 def update_username(new_username, confirm_username, password, email):
     cursor=conn.cursor()
+    cursor.execute("SELECT user_id FROM LoginSchema.Users WHERE email = ?", (email))
+    user_id = cursor.fetchone()
+    if user_id:
+        cursor.execute("SELECT hashed_password, password_salt, login_id FROM LoginSchema.UserLogin WHERE login_id = ?", (user_id))
+        result = cursor.fetchone()
+        if result:
+            stored_password = result[0]
+            stored_salt = result[1]
+            entered_password_hashed, _ = password_hashing(password, stored_salt)
+            if stored_password == entered_password_hashed and user_id == result[2]:
+                if new_username == confirm_username:
+                    cursor.execute("UPDATE LoginSchema.UserLogin SET login_name = ? WHERE user_id = ?", (new_username, user_id))
+                    conn.commit()
+                    cursor.close()
+                    return "User updated successfully"
+            else:
+                return "Either your username confirmation did not match, or the password you have entered is incorrect."
     """
     Use email to get user_id
-    Use user_id to get login_id
-    Check if username provided matches username on file for that login_id
+    Check if username provided matches username on file for that user_id
     If True, continue
     Use login_id to get password hash and salt
     hash the password param and compare
@@ -52,7 +68,7 @@ def update_username(new_username, confirm_username, password, email):
     if True, update username in the UserLogin table
 
     """
-    return "Username updated successfully"
+    return "There has been a problem, please try again later."
 def update_user_password(username, email, new_password, confirm_password):
     """
     Use username to get login_id
