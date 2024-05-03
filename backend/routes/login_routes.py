@@ -66,12 +66,6 @@ def delete():
 def update_username():
     global user_id
     global login_id
-    """
-    Match the update User form
-    get all data from form fields
-    Use data in update_username() in user_authentication
-    return same jsonify's
-    """
     form = UpdateUserForm()
     if request.method == 'POST':
         if form.validate_on_submit():

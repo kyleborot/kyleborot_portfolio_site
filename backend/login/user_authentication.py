@@ -58,16 +58,6 @@ def update_username(new_username, confirm_username, password, email):
                     return "User updated successfully"
             else:
                 return "Either your username confirmation did not match, or the password you have entered is incorrect."
-    """
-    Use email to get user_id
-    Check if username provided matches username on file for that user_id
-    If True, continue
-    Use login_id to get password hash and salt
-    hash the password param and compare
-    if True, check new_username == confirm_username
-    if True, update username in the UserLogin table
-
-    """
     return "There has been a problem, please try again later."
 def update_user_password(username, email, new_password, confirm_password):
     """
