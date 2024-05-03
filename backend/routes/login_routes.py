@@ -50,3 +50,16 @@ def register():
         return render_template("register.html", form=form)
     else:
         return jsonify({'message': 'Method not allowed'}), 405
+@login_routes.route("/delete", methods=['GET', 'POST'])
+def delete():
+    global user_id
+    global login_id
+    return
+
+@login_routes.route("/update/user", methods=['GET', 'POST'])
+def update_user():
+    return
+
+@login_routes.route("/update/password", methods=['GET', 'POST'])
+def update_password():
+    return
