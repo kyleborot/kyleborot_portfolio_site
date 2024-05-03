@@ -52,7 +52,7 @@ def update_username(new_username, confirm_username, password, email):
     if True, update username in the UserLogin table
 
     """
-    return 
+    return "Username updated successfully"
 def update_user_password(username, email, new_password, confirm_password):
     """
     Use username to get login_id

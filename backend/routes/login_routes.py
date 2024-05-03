@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, jsonify, request
-from login.forms import RegistrationForm, LoginForm
+from login.forms import RegistrationForm, LoginForm, UpdateUserForm, UpdatePasswordForm, DeleteForm
 from login.user_authentication import login_user, register_user, update_username, update_user_password, delete_user, get_max_user_id, get_max_login_id
 from login.password_hashing import password_hashing
 from config.config import conn
@@ -63,7 +63,7 @@ def delete():
     return
 
 @login_routes.route("/update/user", methods=['GET', 'POST'])
-def update_user():
+def update_username():
     global user_id
     global login_id
     """
@@ -72,7 +72,22 @@ def update_user():
     Use data in update_username() in user_authentication
     return same jsonify's
     """
-    return
+    form = UpdateUserForm()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            new_username = form.new_username.data
+            confirm_username = form.confirm_username.data
+            password = form.password.data
+            email = form.email.data
+            update_username(new_username, confirm_username, password, email)
+            return jsonify({'message': 'User updated successfully.', 'username': new_username}), 200
+        else:
+            errors = {field: error for field, error in form.errors.items()}
+            return jsonify({'message': 'Update failed', 'errors': errors}), 400
+    elif request.method == 'GET':
+        return render_template("updateUser.html", form=form)
+    else:
+        return jsonify({'message': 'Method not allowed'}), 405
 
 @login_routes.route("/update/password", methods=['GET', 'POST'])
 def update_password():
