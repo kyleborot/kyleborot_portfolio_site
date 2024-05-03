@@ -63,7 +63,7 @@ def delete():
     return
 
 @login_routes.route("/update/user", methods=['GET', 'POST'])
-def update_username():
+def update_user():
     global user_id
     global login_id
     form = UpdateUserForm()

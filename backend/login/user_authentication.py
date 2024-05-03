@@ -50,9 +50,9 @@ def update_username(new_username, confirm_username, password, email):
             stored_password = result[0]
             stored_salt = result[1]
             entered_password_hashed, _ = password_hashing(password, stored_salt)
-            if stored_password == entered_password_hashed and user_id == result[2]:
+            if stored_password == entered_password_hashed and user_id[0] == result[2]:
                 if new_username == confirm_username:
-                    cursor.execute("UPDATE LoginSchema.UserLogin SET login_name = ? WHERE user_id = ?", (new_username, user_id))
+                    cursor.execute("UPDATE LoginSchema.UserLogin SET login_name = ? WHERE user_id = ?", (new_username, user_id[0]))
                     conn.commit()
                     cursor.close()
                     return "User updated successfully"
