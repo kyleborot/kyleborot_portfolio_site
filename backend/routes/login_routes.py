@@ -87,10 +87,19 @@ def update_user():
 def update_password():
     global user_id
     global login_id
-    """
-    Match the update Password form
-    get all data from form fields
-    Use data in update_user_password() in user_authentication
-    return same jsonify's
-    """
-    return
+    form = UpdatePasswordForm()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            username = form.username.data
+            email = form.email.data
+            new_password = form.new_password.data
+            confirm_password = form.confirm_password.data
+            update_user_password(username, email, new_password, confirm_password)
+            return jsonify({'message': 'User updated successfully.', 'password': new_password}), 200
+        else:
+            errors = {field: error for field, error in form.errors.items()}
+            return jsonify({'message': 'Update failed', 'errors': errors}), 400
+    elif request.method == 'GET':
+        return render_template("updatePassword.html", form=form)
+    else:
+        return jsonify({'message': 'Method not allowed'}), 405

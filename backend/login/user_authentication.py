@@ -61,24 +61,14 @@ def update_username(new_username, confirm_username, password, email):
                 return "Either your username confirmation did not match, or the password you have entered is incorrect."
     return "There has been a problem, please try again later."
 def update_user_password(username, email, new_password, confirm_password):
-    """
-    Use username to get login_id
-    Use login_id to get user_id
-    Check if email provided matches email on file for that user_id
-    If True, continue
-    check if new_password == confirm_password
-    If True, hash new_password
-    IUpdate password hashing values in the UserLogin table
-
-    """
     cursor = conn.cursor()
     cursor.execute("SELECT login_id, user_id FROM LoginSchema.UserLogin WHERE login_name = ?",(username,))
     id = cursor.fetchone()
-    cursor.execute("SELECT email FROM LoginSchema.Users WHERE user_id = ?", (id,))
+    cursor.execute("SELECT email FROM LoginSchema.Users WHERE user_id = ?", (id[0],))
     validate_email = cursor.fetchone()
     if email == validate_email[0] and new_password == confirm_password:
         password, salt = password_hashing(new_password)
-        cursor.execute("UPDATE LoginSchema.UserLogin SET hashed_password = ?, password_salt = ? WHERE login_id = ?", (password, salt, id))
+        cursor.execute("UPDATE LoginSchema.UserLogin SET hashed_password = ?, password_salt = ? WHERE login_id = ?", (password, salt, id[0]))
         conn.commit()
         cursor.close()
         return "Password successfully reset"
