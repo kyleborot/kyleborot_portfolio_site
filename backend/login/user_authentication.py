@@ -39,6 +39,7 @@ def register_user(user_id, username, first_name, last_name, password, email):
     conn.commit()
     cursor.close()
     return "User registered successfully, next user_id is {user_id}"
+
 def update_username(new_username, confirm_username, password, email):
     cursor=conn.cursor()
     cursor.execute("SELECT user_id FROM LoginSchema.Users WHERE email = ?", (email))
@@ -70,7 +71,18 @@ def update_user_password(username, email, new_password, confirm_password):
     IUpdate password hashing values in the UserLogin table
 
     """
-    return
+    cursor = conn.cursor()
+    cursor.execute("SELECT login_id, user_id FROM LoginSchema.UserLogin WHERE login_name = ?",(username,))
+    id = cursor.fetchone()
+    cursor.execute("SELECT email FROM LoginSchema.Users WHERE user_id = ?", (id,))
+    validate_email = cursor.fetchone()
+    if email == validate_email[0] and new_password == confirm_password:
+        password, salt = password_hashing(new_password)
+        cursor.execute("UPDATE LoginSchema.UserLogin SET hashed_password = ?, password_salt = ? WHERE login_id = ?", (password, salt, id))
+        conn.commit()
+        cursor.close()
+        return "Password successfully reset"
+    return "There has been a problem, please try again later"
 def delete_user(username, password, email, delete_form):
     """
     Use username to get login_id
