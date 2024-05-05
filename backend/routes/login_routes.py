@@ -50,17 +50,27 @@ def register():
         return render_template("register.html", form=form)
     else:
         return jsonify({'message': 'Method not allowed'}), 405
+
 @login_routes.route("/delete", methods=['GET', 'POST'])
 def delete():
     global user_id
     global login_id
-    """
-    Match the Delete Form
-    get all data from form fields
-    Use in delete_user() from user_authentication
-    return same jsonify's
-    """
-    return
+    form = DeleteForm()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            username = form.username.data
+            password = form.password.data
+            email = form.email.data
+            confirm_delete = form.confirm_delete.data
+            result = delete_user(username, password, email, confirm_delete)
+            return jsonify({'message': result}), 200
+        else:
+            errors = {field: error for field, error in form.errors.items()}
+            return jsonify({'message': 'Validation failed', 'errors': errors}), 400
+    elif request.method == 'GET':
+        return render_template("deleteUser.html", form=form)
+    else:
+        return jsonify({'message': 'Method not allowed'}), 405
 
 @login_routes.route("/update/user", methods=['GET', 'POST'])
 def update_user():

@@ -86,19 +86,27 @@ def delete_user(username, password, email, delete_form):
     If True, delete user from DB using user_id and login_id
     """
     cursor = conn.cursor()
-    cursor.execute("SELECT user_id, email FROM LoginSchema.UserLogin WHERE login_name = ?", (username,))
+    cursor.execute("SELECT user_id FROM LoginSchema.UserLogin WHERE login_name = ?", (username,))
     result_1 = cursor.fetchone()
-    if result_1 and result_1[1] == email:
-        cursor.execute("SELECT hashed_password, password_salt, login_id FROM LoginSchema.UserLogin WHERE login_id = ?", (user_id))
-        pw_result = cursor.fetchone()
-        if pw_result:
-            stored_password = pw_result[0]
-            stored_salt = pw_result[1]
-            entered_password_hashed, _ = password_hashing(password, stored_salt)
-            if stored_password == entered_password_hashed and result_1[0] == pw_result[2] and delete_form == "delete":
-                cursor.execute("DELETE FROM LoginSchema.UserLogin WHERE user_id = ?", (result_1[0],))
-                cursor.execute("DELETE FROM LoginSchema.Users WHERE user_id = ?", (result_1[0],))
-                conn.commit()
-                cursor.close()
-                return "user successfully deleted"
-    return "user could not be deleted"
+    if result_1:
+        cursor.execute("SELECT email FROM LoginSchema.Users WHERE user_id = ?", (result_1[0],))
+        validate_email = cursor.fetchone()
+        if email == validate_email[0]:
+            cursor.execute("SELECT hashed_password, password_salt, login_id FROM LoginSchema.UserLogin WHERE login_id = ?", (result_1[0],))
+            pw_result = cursor.fetchone()
+            if pw_result:
+                stored_password = pw_result[0]
+                stored_salt = pw_result[1]
+                entered_password_hashed, _ = password_hashing(password, stored_salt)
+                if stored_password == entered_password_hashed and delete_form == "delete":
+                    cursor.execute("DELETE FROM LoginSchema.UserLogin WHERE login_id = ?", (result_1[0],))
+                    cursor.execute("DELETE FROM LoginSchema.Users WHERE user_id = ?", (result_1[0],))
+                    conn.commit()
+                    cursor.close()
+                    return "user successfully deleted"
+                else:
+                    return "password incorrect, or delete form incorrect"
+            else:
+                return "pw_result empty"
+        else:
+            return "email select is incorrect"

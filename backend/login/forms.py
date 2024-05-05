@@ -32,4 +32,5 @@ class UpdatePasswordForm(FlaskForm):
 class DeleteForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
+    email = StringField('Email Address', validators=[DataRequired()])
     confirm_delete = StringField('Type delete to confirm', validators=[DataRequired()])
