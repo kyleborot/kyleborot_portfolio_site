@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Registration</title>
+    <title>Update Username</title>
 </head>
 <body>
-    <h2>User Registration</h2>
+    <h2>Update Username</h2>
     <form action="http://127.0.0.1:5000/login/update/user" method="POST">
         {{ form.csrf_token }}
         <label for="new_username">New Username:</label><br>
@@ -17,7 +17,7 @@
         <input type="password" id="password" name="password"><br>
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email"><br><br>
-        <input type="submit" value="User">
+        <input type="submit" value="Update">
     </form>
 </body>
 </html>

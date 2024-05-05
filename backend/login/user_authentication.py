@@ -60,6 +60,7 @@ def update_username(new_username, confirm_username, password, email):
             else:
                 return "Either your username confirmation did not match, or the password you have entered is incorrect."
     return "There has been a problem, please try again later."
+
 def update_user_password(username, email, new_password, confirm_password):
     cursor = conn.cursor()
     cursor.execute("SELECT login_id, user_id FROM LoginSchema.UserLogin WHERE login_name = ?",(username,))
@@ -73,18 +74,8 @@ def update_user_password(username, email, new_password, confirm_password):
         cursor.close()
         return "Password successfully reset"
     return "There has been a problem, please try again later"
+
 def delete_user(username, password, email, delete_form):
-    """
-    Use username to get login_id
-    Use login_id to get user_id
-    Check if email provided matches email on file for that user_id
-    If True, continue
-    Use login_id to get password hash and salt
-    hash the password param and compare
-    if True, continue
-    Check that delete_form from user input == "delete", case sensitive
-    If True, delete user from DB using user_id and login_id
-    """
     cursor = conn.cursor()
     cursor.execute("SELECT user_id FROM LoginSchema.UserLogin WHERE login_name = ?", (username,))
     result_1 = cursor.fetchone()

@@ -1,8 +1,6 @@
 from flask import Blueprint, render_template, jsonify, request
 from login.forms import RegistrationForm, LoginForm, UpdateUserForm, UpdatePasswordForm, DeleteForm
 from login.user_authentication import login_user, register_user, update_username, update_user_password, delete_user, get_max_user_id, get_max_login_id
-from login.password_hashing import password_hashing
-from config.config import conn
 
 login_routes = Blueprint('login', __name__)
 
@@ -27,6 +25,7 @@ def login():
         return render_template("login.html", form=form)
     else:
         return jsonify({'message': 'Method not allowed'}), 405
+    
 @login_routes.route("/register", methods=['GET','POST'])
 def register():
     global user_id
