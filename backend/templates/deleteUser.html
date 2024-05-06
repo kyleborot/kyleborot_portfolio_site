@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Deletion</title>
+</head>
+<body>
+    <h2>User Deletion</h2>
+    <form action="http://127.0.0.1:5000/login/delete" method="POST">
+        {{ form.csrf_token }}
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="confirm_delete">Type 'delete' to confirm:</label><br>
+        <input type="text" id="confirm_delete" name="confirm_delete"><br>
+        <input type="submit" value="Delete">
+    </form>
+</body>
+</html>
