@@ -2,9 +2,13 @@
 
 import React from 'react';
 
-const Contact: React.FC = () => {
+interface Props {
+    id: string;
+}
+
+const Contact: React.FC<Props> = ({ id }) => {
   return (
-    <div id="contact">
+    <div id={id}>
       <h2>Contact</h2>
       {/* Add your Contact content here */}
     </div>

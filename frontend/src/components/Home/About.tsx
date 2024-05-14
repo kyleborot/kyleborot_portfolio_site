@@ -1,13 +1,16 @@
 // About.tsx
 
 import React from 'react';
+import { Element } from 'react-scroll';
 
 const About: React.FC = () => {
   return (
-    <div id="about">
-      <h2>About</h2>
-      {/* Add your About content here */}
-    </div>
+    <Element name="about">
+        <div>
+        <h2>About</h2>
+        {/* Add your About content here */}
+        </div>
+    </Element>
   );
 }
 
