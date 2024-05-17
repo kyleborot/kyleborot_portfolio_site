@@ -4,6 +4,7 @@ import React from 'react';
 import { NavLink as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import * as Scroll from 'react-scroll';
+import './NavBar.css'; // Import your CSS file
 
 const NavBar: React.FC = () => {
     const path = useLocation().pathname;
@@ -21,9 +22,9 @@ const NavBar: React.FC = () => {
         });
     };
   return (
-<header id="navigation">
+    <header id="navigation">
       <nav>
-        <ul>
+        <ul className="nav-links"> {/* Add a class for styling */}
           {location !== "projects" && location !== "resume" ? (
             <>
                 {" "}
