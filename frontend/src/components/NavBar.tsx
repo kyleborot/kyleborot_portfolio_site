@@ -21,6 +21,10 @@ const NavBar: React.FC = () => {
         spy: true
         });
     };
+    const handleClick = (event: React.MouseEvent<HTMLAnchorElement>, selector: string) => {
+      event.preventDefault();
+      goToPageAndScroll(selector);
+    };
   return (
     <header id="navigation">
       <nav>
@@ -45,9 +49,9 @@ const NavBar: React.FC = () => {
           ) : (
             <>
                 {" "}
-                <button onClick={() => goToPageAndScroll("home")}>Home</button>
-                <button onClick={() => goToPageAndScroll("about")}>About</button>
-                <button onClick={() => goToPageAndScroll("contact")}>Contact</button>
+                <a href="/" onClick={(event) => handleClick(event, 'home')}>Home</a>
+                <a href="/" onClick={(event) => handleClick(event, 'about')}>About</a>
+                <a href="/" onClick={(event) => handleClick(event, 'contact')}>Contact</a>                
                 <RouterLink to="/projects">Projects</RouterLink>
                 <RouterLink to="/resume">Resume</RouterLink>
             </>
