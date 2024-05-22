@@ -26,7 +26,7 @@ const Home: React.FC = () => {
       <div className="text-buttons">
         <h1>Hello!</h1> 
         <h1>I'm Kyle, </h1>
-        <h1>an engineer</h1>
+        <h1>an engineer.</h1>
         <div className="buttons">
           <button onClick={() => goToPageAndScroll("about")}>Learn what that means</button>
           <button onClick={() => goToPageAndScroll("contact")}>Let's work together!</button>
