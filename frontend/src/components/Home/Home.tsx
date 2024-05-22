@@ -20,7 +20,7 @@ const Home: React.FC = () => {
         <h1>I'm Kyle, </h1>
         <h1>an engineer.</h1>
         <h1>I made this website.</h1>
-        <h2>like, seriously.</h2>
+        <h1>like, seriously.</h1>
         <div className="buttons">
           <button onClick={() => goToPage("projects")}>Explore</button>
           <button onClick={() => goToPage("contact")}>Let's work together!</button>

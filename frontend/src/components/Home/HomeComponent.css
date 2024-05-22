@@ -34,7 +34,8 @@ body {
 }
 .text-section p {
     display:block;
-    text-align: justify; /* Align paragraphs to the left */
+    text-align: justify;
+    padding-bottom: 12px;
 }
 
 .text-buttons h1, .text-section p {

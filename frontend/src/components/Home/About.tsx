@@ -16,9 +16,8 @@ const About: React.FC = () => {
         <div className="container">
             <div style={flexColumnStyle}>
             <div style={centerStyle}>
-                <h1>About Me</h1>
+                <h1>About </h1>
                 <p><strong>engineer</strong>, /ˌɛnʤəˈniɚ/, <em>noun</em></p>
-                <p>a person who has scientific training and who designs and builds complicated products, machines, systems, or structures</p>
             </div>
             <div className="text-section">
                 <p>
@@ -26,6 +25,9 @@ const About: React.FC = () => {
                 I have had the opportunity to engage in a variety of engineering disciplines and industries. 
                 From civil to solar, defense and nautical, I have been able to sharpen my engineering principles
                 and enhance my software engineering capabilities to be a multi-faceted team player
+                </p>
+                <p>
+                    lorem ipsum dolor
                 </p>
             </div>
             </div>
