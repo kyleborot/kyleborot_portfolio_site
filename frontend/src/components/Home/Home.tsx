@@ -6,20 +6,12 @@ import * as Scroll from 'react-scroll';
 import './HomeComponent.css'
 
 const Home: React.FC = () => {
-  const path = useLocation().pathname;
-    const location = path.split("/")[1];
-    const navigate = useNavigate();
-    const scroller = Scroll.scroller;
+  
+  const navigate = useNavigate();
 
-  const goToPageAndScroll = async (selector: string) => {
-    await navigate("/");
-    await scroller.scrollTo(selector, {
-    duration: 500,
-    smooth: true,
-    offset: -75,
-    spy: true
-    });
-    };
+  const goToPage = (page : string) => {
+    navigate(page);
+  };
 
   return (
     <div className="container">
@@ -27,9 +19,11 @@ const Home: React.FC = () => {
         <h1>Hello!</h1> 
         <h1>I'm Kyle, </h1>
         <h1>an engineer.</h1>
+        <h1>I made this website.</h1>
+        <h2>like, seriously.</h2>
         <div className="buttons">
-          <button onClick={() => goToPageAndScroll("about")}>Learn what that means</button>
-          <button onClick={() => goToPageAndScroll("contact")}>Let's work together!</button>
+          <button onClick={() => goToPage("projects")}>Explore</button>
+          <button onClick={() => goToPage("contact")}>Let's work together!</button>
         </div>
       </div>
         <div className="image-container">

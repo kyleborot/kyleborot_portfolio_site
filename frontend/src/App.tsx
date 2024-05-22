@@ -7,6 +7,7 @@ import HomeContainer from './components/Home/HomeContainer';
 import Projects from './components/Projects/Projects';
 import Resume from './components/Resume/Resume.tsx';
 import './App.css'
+import Contact from './components/Home/Contact.tsx';
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const App: React.FC = () => {
         <NavBar />
         <Routes>
           <Route path="/" element={<HomeContainer />} />
+          <Route path="/contact" element={<Contact/>}/>
           <Route path="/projects" Component={Projects} />
           <Route path="/resume" Component={Resume} />
         </Routes>

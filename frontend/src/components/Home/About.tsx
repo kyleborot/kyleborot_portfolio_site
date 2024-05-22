@@ -16,7 +16,7 @@ const About: React.FC = () => {
         <div className="container">
             <div style={flexColumnStyle}>
             <div style={centerStyle}>
-                <h1>About</h1>
+                <h1>About Me</h1>
                 <p><strong>engineer</strong>, /ˌɛnʤəˈniɚ/, <em>noun</em></p>
                 <p>a person who has scientific training and who designs and builds complicated products, machines, systems, or structures</p>
             </div>

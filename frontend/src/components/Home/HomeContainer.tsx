@@ -10,7 +10,6 @@ const HomeContainer: React.FC = () => {
     <div>
       <Home />
       <About />
-      <Contact id="contact"/>
     </div>
   );
 }

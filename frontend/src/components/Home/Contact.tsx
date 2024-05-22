@@ -1,17 +1,15 @@
 // Contact.tsx
 
 import React from 'react';
+import { Element } from 'react-scroll';
 
-interface Props {
-    id: string;
-}
-
-const Contact: React.FC<Props> = ({ id }) => {
+const Contact: React.FC = () => {
   return (
-    <div id={id}>
-      <h2>Contact</h2>
-      {/* Add your Contact content here */}
+    <Element name="contact">
+    <div>
+      <h1>Contact</h1>
     </div>
+    </Element>
   );
 }
 
