@@ -2,7 +2,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
     margin: 0;
     font-family: Arial, sans-serif;
 }
@@ -12,7 +12,7 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 80%;
-    padding-top: 20px;
+    padding-top: 50px;
     padding-bottom: 20px; /* Padding at the bottom */
     border-bottom: 1px solid #ccc; /* Faint line at the bottom */
 }

@@ -1,29 +1,32 @@
 /* NavBar.css */
 
 .nav-links {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Ensure items are centered vertically */
+  background-color: #f0f0f0; /* Example background color for visibility */
+  padding: 10px; /* Add padding to ensure content is not too close to edges */
+}
+
+
+.nav-links a,
+.nav-links button {
+  margin: 0 10px; /* Adjust spacing between links */
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Media queries for responsiveness */
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    flex-direction: column; /* Stack links vertically on small screens */
+    align-items: flex-start; /* Adjust alignment as needed */
   }
-  
+
   .nav-links a,
   .nav-links button {
-    margin: 0 10px; /* Adjust spacing between links */
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
+    margin: 10px 0; /* Adjust spacing for vertical stacking */
   }
-  
-  /* Media queries for responsiveness */
-  
-  @media screen and (max-width: 768px) {
-    .nav-links {
-      flex-direction: column; /* Stack links vertically on small screens */
-      align-items: center;
-    }
-  
-    .nav-links a,
-    .nav-links button {
-      margin: 10px 0; /* Adjust spacing for vertical stacking */
-    }
-  }
-  
+}
