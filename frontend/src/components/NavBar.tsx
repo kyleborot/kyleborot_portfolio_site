@@ -27,6 +27,7 @@ const NavBar: React.FC = () => {
     };
   return (
     <header id="navigation">
+      <div className="navbar-wrapper">
       <nav>
         <ul className="nav-links"> {/* Add a class for styling */}
           {location !== "projects" && location !== "resume" ? (
@@ -58,6 +59,7 @@ const NavBar: React.FC = () => {
           )}
         </ul>
       </nav>
+      </div>
     </header>
   );
 };

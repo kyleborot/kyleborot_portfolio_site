@@ -1,32 +1,31 @@
-/* NavBar.css */
+.navbar-wrapper {
+  background-color: #fff;
+}
 
 .nav-links {
   display: flex;
   justify-content: center;
-  align-items: center; /* Ensure items are centered vertically */
-  background-color: #f0f0f0; /* Example background color for visibility */
-  padding: 10px; /* Add padding to ensure content is not too close to edges */
+  align-items: center;
+  background-color: #fff;
+  padding: 5px; /* Reduce padding to avoid excessive width */
 }
-
 
 .nav-links a,
 .nav-links button {
-  margin: 0 10px; /* Adjust spacing between links */
+  margin: 0 10px;
   text-decoration: none;
   color: #333;
   font-weight: bold;
 }
 
-/* Media queries for responsiveness */
-
 @media screen and (max-width: 768px) {
   .nav-links {
-    flex-direction: column; /* Stack links vertically on small screens */
-    align-items: flex-start; /* Adjust alignment as needed */
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .nav-links a,
   .nav-links button {
-    margin: 10px 0; /* Adjust spacing for vertical stacking */
+    margin: 10px 0;
   }
 }
