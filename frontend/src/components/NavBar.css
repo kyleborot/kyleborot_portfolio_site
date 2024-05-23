@@ -1,0 +1,31 @@
+.navbar-wrapper {
+  background-color: #ccc;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 5px; /* Reduce padding to avoid excessive width */
+}
+
+.nav-links a,
+.nav-links button {
+  margin: 0 10px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links a,
+  .nav-links button {
+    margin: 10px 0;
+  }
+}

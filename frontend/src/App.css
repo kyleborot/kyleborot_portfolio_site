@@ -1,8 +1,22 @@
 #root {
-  max-width: 1280px;
+  max-width: 100%; /* Adjust as necessary based on layout requirements */
+  max-height:100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content at the top */
+  align-items: center; /* Center horizontally */
+  max-width: 100%; /* Ensure content container fits within viewport */
+  margin: 0 auto;
+  padding: 0 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100vh; /* Occupy full viewport height */
 }
 
 .logo {
@@ -11,9 +25,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
