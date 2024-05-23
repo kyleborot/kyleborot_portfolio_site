@@ -14,7 +14,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="container">
+    <div className="home-container">
       <div className="text-buttons">
         <h1>Hello!</h1> 
         <h1>I'm Kyle, </h1>
