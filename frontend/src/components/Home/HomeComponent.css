@@ -47,10 +47,12 @@ body {
     max-width: 600px;
     text-align: justify;
     padding-bottom: 12px;
+    margin: 5px 0;
 }
 
-.text-buttons h1, .text-section p {
+.text-buttons h1 {
     margin: 5px 0;
+    text-align: left;
 }
 
 .buttons {
@@ -100,7 +102,7 @@ body {
 }
 
 .about-img-container {
-    width: 90%;
+    width: 120%;
     height: auto;
     border-radius: 50px;
 }
