@@ -1,7 +1,7 @@
 // NavBar.tsx
 
 import React from 'react';
-import { NavLink as RouterLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link as LogoLink, NavLink as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import * as Scroll from 'react-scroll';
 import './NavBar.css'; // Import your CSS file
@@ -29,16 +29,15 @@ const NavBar: React.FC = () => {
     <header id="navigation">
       <div className="navbar-wrapper">
         <div className="logo-style">
+          <LogoLink to="/" style={{textDecoration: 'none', color: 'inherit'}}>
           <img src="k_b.png" alt="navbar logo"/>
+          </LogoLink>
         </div>
       <nav>
         <ul className="nav-links"> {/* Add a class for styling */}
           {location !== "projects" && location !== "resume" && location !== "contact" ? (
             <>
                 {" "}
-                <ScrollLink to="home" spy={true} smooth={true} offset={-75} duration={500}>
-                  Home
-                </ScrollLink>
                 <ScrollLink to="about" spy={true} smooth={true} offset={-75} duration={500}>
                   About
                 </ScrollLink>
