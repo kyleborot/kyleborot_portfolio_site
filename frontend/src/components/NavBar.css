@@ -1,5 +1,5 @@
 .navbar-wrapper {
-  background-color: #ccc;
+  background-color: #fff;
 }
 
 .nav-links {
@@ -16,6 +16,15 @@
   text-decoration: none;
   color: black;
   font-weight: bold;
+}
+
+.logo-style {
+  margin-right: 20px;
+}
+
+.logo-style img {
+  max-height: 50px;
+  max-width: 50px;
 }
 
 @media screen and (max-width: 768px) {

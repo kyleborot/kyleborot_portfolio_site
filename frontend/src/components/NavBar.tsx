@@ -28,6 +28,9 @@ const NavBar: React.FC = () => {
   return (
     <header id="navigation">
       <div className="navbar-wrapper">
+        <div className="logo-style">
+          <img src="k_b.png" alt="navbar logo"/>
+        </div>
       <nav>
         <ul className="nav-links"> {/* Add a class for styling */}
           {location !== "projects" && location !== "resume" && location !== "contact" ? (

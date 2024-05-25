@@ -3,6 +3,7 @@
 import React from 'react';
 import { Element } from 'react-scroll';
 import './HomeComponent.css'
+import { useNavigate } from 'react-router-dom';
 
 const About: React.FC = () => {
     const centerStyle: React.CSSProperties = {
@@ -11,6 +12,16 @@ const About: React.FC = () => {
     const flexColumnStyle: React.CSSProperties = {
         flexDirection: 'column'
     };
+    const bottomPadding: React.CSSProperties = {
+        paddingBottom: '100px'
+      };
+
+    const navigate = useNavigate();
+
+    const goToPage = (page : string) => {
+      navigate(page);
+    };
+  
   return (
 <Element name="about">
             <div className="about-container">
@@ -34,10 +45,12 @@ const About: React.FC = () => {
                             experience but also stands as a project in its own right. 
                             As a full-stack application, it demonstrates my technical skills through interactive features,
                             including a secure user login system, a GPT-powered chatbot, and a visualized timeline of my 
-                            engineering progression. Each element has been meticulously crafted to highlight my proficiency
-                            in modern web development technologies, providing an engaging and informative experience for visitors.
+                            engineering progression. Click below to explore what I have to offer in my engineering pursuits.
                         </p>
                     </div>
+                </div>
+                <div className="text-buttons" style={Object.assign(centerStyle, bottomPadding)}>
+                        <button onClick={() => goToPage("projects")}>Explore</button>
                 </div>
             </div>
         </Element>
