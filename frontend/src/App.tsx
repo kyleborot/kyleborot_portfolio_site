@@ -8,12 +8,14 @@ import Projects from './components/Projects/Projects';
 import Resume from './components/Resume/Resume.tsx';
 import './App.css'
 import Contact from './components/Home/Contact.tsx';
+import ScrollToTop from './components/ScrollToTop.tsx';
 
 const App: React.FC = () => {
   return (
     <Router>
       <div>
         <div className="content-container">
+        <ScrollToTop/>
         <NavBar />
         <Routes>
           <Route path="/" element={<HomeContainer />} />
