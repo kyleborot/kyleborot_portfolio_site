@@ -1,3 +1,20 @@
+"""
+projects to include
+
+-portfolio website
+-miter assembly script
+-ai model made for website - dedicated page with demo
+-user login made for website - dedicated page with demo
+-uniFace - dedicated page
+-pokeAPI app from IEX internship -demo
+-HackinMiami project (future) - dedicated page, possible demo
+-NASA L'SPACE Academy - dedicated page
+-Exowatt internship project
+-Senior design project
+-CAD work portfolio (2D and 3D)
+
+11 project cards total
+"""
 projects = [
     {
         "id": 1,
