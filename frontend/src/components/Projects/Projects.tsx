@@ -1,6 +1,7 @@
 // Projects.tsx
 
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
 import axios from 'axios';
 import './Projects.css'
 
@@ -50,7 +51,15 @@ const Projects: React.FC = () => {
             <h2>{project.name}</h2>
             <p>{project.shortDescription}</p>
             <p><strong>Technologies Used:</strong> {project.techUsed}</p>
-            <a href={project.projectURL} target="_blank" rel="noopener noreferrer" className="project-button">View Project</a>
+            {project.projectURL.startsWith('http') ? (
+              <a href={project.projectURL} target="_blank" rel="noopener noreferrer">
+                <button className="project-button">View Project</button>
+              </a>
+            ) : (
+              <Link to={project.projectURL}>
+                <button className="project-button">View Project</button>
+              </Link>
+            )}
           </div>
         ))}
       </div>

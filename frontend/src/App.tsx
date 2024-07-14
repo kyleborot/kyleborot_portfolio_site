@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import HomeContainer from './components/Home/HomeContainer';
 import Projects from './components/Projects/Projects';
+import ProjectDetail from './components/Projects/ProjectDetail.tsx';
 import Resume from './components/Resume/Resume.tsx';
 import './App.css'
 import Contact from './components/Home/Contact.tsx';
@@ -21,6 +22,7 @@ const App: React.FC = () => {
           <Route path="/" element={<HomeContainer />} />
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/projects" Component={Projects} />
+          <Route path="/projects/:id" element={<ProjectDetail/>}/>
           <Route path="/resume" Component={Resume} />
         </Routes>
         </div>
