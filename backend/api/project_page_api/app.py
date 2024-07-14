@@ -22,5 +22,12 @@ techUsed - string
 def get_projects():
     return jsonify(projects)
 
+@app.route('/api/projects/<int:id>', methods=['GET'])
+def get_project(id):
+    project = next((project for project in projects if project['id'] == id), None)
+    if project is None:
+        abort(404)
+    return jsonify(project)
+
 if __name__ == '__main__':
     app.run(debug=True)
