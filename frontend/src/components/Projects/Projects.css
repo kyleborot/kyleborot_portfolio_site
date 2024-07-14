@@ -3,15 +3,23 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
+    margin: 0 auto;
   }
   
   .project-card {
+    background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
     padding: 20px;
-    width: calc(33%);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
   }
   
   .project-photo {
@@ -27,15 +35,27 @@
   .project-card p {
     margin: 5px 0;
   }
+
+  .project-card:hover {
+    transform: scale(1.05);
+  }
   
-  .project-card a {
+  .project-button {
     display: inline-block;
+    padding: 10px 20px;
     margin-top: 10px;
-    color: #007BFF;
+    background-color: #005f7c;
+    color: white;
     text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    cursor: pointer;
   }
   
-  .project-card a:hover {
-    text-decoration: underline;
+  .project-button:hover {
+    color: white;
+    background-color: #004c63;
   }
+  
   

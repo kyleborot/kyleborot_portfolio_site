@@ -82,7 +82,7 @@ projects = [
         "shortDescription": "A MiniDex built with React and data from PokeAPI. Deployed on AWS.",
         "longDescription":"placeholder",
         "isDemo": True,
-        "projectURL":"http://example.com/project1",
+        "projectURL":"http://poke-api-minidex.s3-website.us-east-2.amazonaws.com",
         "photoURL": "http://example.com/photo1.jpg",
         "createdDate": "2024-02-20",
         "createdLocation": "Miami, FL",
