@@ -18,7 +18,7 @@ createdLocation - string
 techUsed - string
 """
 
-@app.route('/projects', methods=['GET'])
+@app.route('/api/projects', methods=['GET'])
 def get_projects():
     return jsonify(projects)
 
