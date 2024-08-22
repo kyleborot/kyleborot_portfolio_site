@@ -15,6 +15,33 @@ projects to include
 
 11 project cards total
 """
+projectLongDescriptions = [
+        """""",
+        """In manufacturing, the amount of material
+        used in a single project varies drastically. A
+        proper fabrication shop with an engineering team
+        will prepare for these circumstances, and ensure
+        the methodology for quantifying material amounts
+        is consistent. In this months-long project,
+        I led the development of a material classification
+        and quantification algorithm that used the power of 
+        the AlibreX API and Python 2.7 to dynamically 
+        connect our fabrication bill of materials to the 3D software, 
+        allowing DeAngelo Marine to standardize the methods of
+        quantification. In doing this, I assisted the engineering 
+        department in creating internal naming conventions for 
+        commonly used objects in the company's inventory.
+        """,
+        """""",
+        """""",
+        """""",
+        """""",
+        """""",
+        """""",
+        """""",
+        """""",
+        """"""
+]
 projects = [
         {
         "id": 1,
@@ -32,7 +59,7 @@ projects = [
         "id": 2,
         "name": "Automated Material Quantification for Fabrication",
         "shortDescription": "A project using AlibreX to dynamically take the measurements of 3D models.",
-        "longDescription":"placeholder",
+        "longDescription":projectLongDescriptions[1],
         "isDemo": False,
         "projectURL":"/projects/2",
         "photoURL": "http://example.com/photo1.jpg",

@@ -23,7 +23,7 @@ const ProjectDetail: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    axios.get(`/api/projects/${id}`)
+    axios.get(`http://127.0.0.1:5000/api/projects/${id}`)
       .then(response => {
         setProject(response.data);
         setLoading(false);
